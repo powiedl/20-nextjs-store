@@ -1,6 +1,6 @@
 # Store Project
 
-This Store Project is developed during the udemy course **Complete React, Next.js & TypeScript Projects Course 2024** by John Smilga - [https://www.udemy.com/course/react-tutorial-and-projects-course|https://www.udemy.com/course/react-tutorial-and-projects-course]
+This Store Project is developed during the udemy course [**Complete React, Next.js & TypeScript Projects Course 2024**](https://www.udemy.com/course/react-tutorial-and-projects-course) by John Smilga
 
 ### Next App
 
