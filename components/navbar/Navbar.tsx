@@ -15,6 +15,7 @@ const Navbar = () => {
           <NavSearch />
         </Suspense>
         <div className='flex gap-4 items-center '>
+          {/* @ts-expect-error Server Component */}
           <CartButton />
           <DarkMode />
           <LinksDropdown />

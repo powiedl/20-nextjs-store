@@ -2,7 +2,7 @@ import { Button } from '../ui/button';
 import { LuShoppingCart as LuShop, LuShoppingCart } from 'react-icons/lu';
 import Link from 'next/link';
 
-const CartButton = async () => {
+const CartButton = async (): Promise<Awaited<JSX.Element>> => {
   const numItemsInCart = 4;
 
   return (
