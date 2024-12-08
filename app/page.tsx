@@ -7,6 +7,7 @@ const HomePage = () => {
     <>
       <Hero />
       <Suspense fallback={<LoadingContainer />}>
+        {/* @ts-expect-error Server Component */}
         <FeaturedProducts />
       </Suspense>
     </>
