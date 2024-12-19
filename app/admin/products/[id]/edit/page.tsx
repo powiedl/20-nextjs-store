@@ -26,7 +26,7 @@ const EditProductPage = async ({ params }: { params: { id: string } }) => {
           action={updateProductImageAction}
         >
           <input type='hidden' name='id' value={id} />
-          <input type='hidden' name='image' value={product.image} />
+          <input type='hidden' name='url' value={product.image} />
         </ImageInputContainer>
         <FormContainer action={updateProductAction}>
           <div className='grid gap-4 md:grid-cols-2 my-4'>

@@ -177,7 +177,6 @@ export const updateProductImageAction = async (
   await getAdminUser();
   try {
     const image = formData.get('image') as File;
-    console.log('updateProductImageAction, check image:', typeof image, image);
     const productId = formData.get('id') as string;
     const oldImageUrl = formData.get('url') as string;
 

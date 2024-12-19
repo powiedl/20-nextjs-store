@@ -1,6 +1,5 @@
-/*
-// meine Version
 'use client';
+// meine Version
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
@@ -26,7 +25,7 @@ const ImageInputContainer = (props: ImageInputContainerProps) => {
         src={image}
         width={200}
         height={200}
-        className='rounded-md object-cover mb-4 w-[200px] h-[200px]'
+        className='rounded object-cover mb-4 w-[200px] h-[200px]'
         alt={name}
         priority
       />
@@ -50,10 +49,9 @@ const ImageInputContainer = (props: ImageInputContainerProps) => {
   );
 };
 export default ImageInputContainer;
-*/
 
+/*
 // Johns Version
-'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
@@ -103,3 +101,4 @@ function ImageInputContainer(props: ImageInputContainerProps) {
   );
 }
 export default ImageInputContainer;
+*/

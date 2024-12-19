@@ -31,11 +31,11 @@ export const imageSchema = z.object({
 });
 
 function validateImageFile() {
-  console.log('validateImageFile');
+  //  console.log('validateImageFile');
   const maxUploadSize = 1024 * 1024; // 1 MB
   const acceptedFileTypes = ['image/'];
   const z1 = z.instanceof(File);
-  console.log('validateImageFile - it is a file ...');
+  //  console.log('validateImageFile - it is a file ...');
   const z2 = z1.refine(
     (file) => {
       return !file || file.size <= maxUploadSize;
@@ -44,20 +44,20 @@ function validateImageFile() {
       message: 'File size must be less than 1 MB and must be an image.',
     }
   );
-  console.log('validateImage, it is small enough ...');
+  //  console.log('validateImage, it is small enough ...');
   const z3 = z2.refine((file) => {
     return (
       !file || acceptedFileTypes.some((type) => file.type.startsWith(type))
     );
   }, 'File must be an image.');
-  console.log('validateImage, it is an image ...');
+  //  console.log('validateImage, it is an image ...');
   return z3;
 }
 export function validateWithZodSchema<T>(
   schema: ZodSchema<T>,
   data: unknown
 ): T {
-  console.log('validateWithZodSchema');
+  //  console.log('validateWithZodSchema');
   const result = schema.safeParse(data);
   if (!result.success) {
     const errors = result.error.errors.map((error) => error.message);
