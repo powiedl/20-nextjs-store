@@ -19,10 +19,6 @@ const FavoriteToggleForm = ({
     favoriteId,
     pathname,
   });
-  // const toggleAction = async (): Promise<{ message: string }> => {
-  //   console.log('toggle favorite action');
-  //   return { message: 'toggle favorite action' };
-  // };
   return (
     <FormContainer action={toggleAction}>
       <CardSubmitButton isFavorite={favoriteId ? true : false} />
