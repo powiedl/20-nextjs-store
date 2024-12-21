@@ -216,7 +216,6 @@ export const toggleFavoriteAction = async (prevState: {
   favoriteId: string | null;
   pathname: string;
 }) => {
-  console.log('toggle favorite action');
   const user = await getAuthUser();
   const { productId, favoriteId, pathname } = prevState;
   try {
@@ -243,33 +242,15 @@ export const toggleFavoriteAction = async (prevState: {
   }
 };
 
-/*
-// Johns Version
-export const updateProductImageAction = async (
-  prevState: any,
-  formData: FormData
-) => {
-  await getAuthUser();
-  try {
-    const image = formData.get('image') as File;
-    const productId = formData.get('id') as string;
-    const oldImageUrl = formData.get('url') as string;
-
-    const validatedFile = validateWithZodSchema(imageSchema, { image });
-    const fullPath = await uploadImage(validatedFile.image);
-    await deleteImage(oldImageUrl);
-    await db.product.update({
-      where: {
-        id: productId,
-      },
-      data: {
-        image: fullPath,
-      },
-    });
-    revalidatePath(`/admin/products/${productId}/edit`);
-    return { message: 'Product Image updated successfully' };
-  } catch (error) {
-    return renderError(error);
-  }
+export const fetchUserFavorites = async () => {
+  const user = await getAuthUser();
+  const favorites = await db.favorite.findMany({
+    where: {
+      clerkId: user.id,
+    },
+    include: {
+      product: true,
+    },
+  });
+  return favorites;
 };
-*/
