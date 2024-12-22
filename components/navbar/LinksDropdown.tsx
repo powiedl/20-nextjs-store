@@ -17,8 +17,8 @@ import { Sign } from 'crypto';
 import SignOutLink from './SignOutLink';
 import { auth } from '@clerk/nextjs/server';
 
-const LinksDropdown = () => {
-  const { userId } = auth();
+const LinksDropdown = async () => {
+  const { userId } = await auth();
   const isAdmin = userId === process.env.ADMIN_USER_ID;
   return (
     <DropdownMenu>

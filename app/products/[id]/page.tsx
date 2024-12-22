@@ -11,12 +11,13 @@ import SubmitReview from '@/components/reviews/SubmitReview';
 import { auth } from '@clerk/nextjs/server';
 
 const SingleProductPage = async ({ params }: { params: { id: string } }) => {
-  const product = await fetchSingleProduct(params.id);
+  const { id: paramsId } = await params;
+  const product = await fetchSingleProduct(paramsId);
   const { name, image, company, description, price } = product;
   const dollarsAmount = formatCurrency(price);
-  const { userId } = auth();
+  const { userId } = await auth();
   const reviewDoesNotExist = userId
-    ? !(await findExistingReview(userId, params.id))
+    ? !(await findExistingReview(userId, paramsId))
     : null;
 
   return (
@@ -39,21 +40,21 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
           <div className='flex gap-x-8 items-center'>
             <h1 className='capitalize text-3xl font-bold'>{name}</h1>
             <div className='flex items-center gap-x-2'>
-              <ShareButton productId={params.id} name={name} />
-              <FavoriteToggleButton productId={params.id} />
+              <ShareButton productId={paramsId} name={name} />
+              <FavoriteToggleButton productId={paramsId} />
             </div>
           </div>
-          <ProductRating productId={params.id} />
+          <ProductRating productId={paramsId} />
           <h4 className='text-xl mt-2'>{company}</h4>
           <p className='mt-3 text-md bg-muted inline-block p-2 rounded'>
             {dollarsAmount}
           </p>
           <p className='mt-6 leading-8text-muted-foreground'>{description}</p>
-          <AddToCart productId={params.id} />
+          <AddToCart productId={paramsId} />
         </div>
       </div>
-      <ProductReviews productId={params.id} />
-      {reviewDoesNotExist && <SubmitReview productId={params.id} />}
+      <ProductReviews productId={paramsId} />
+      {reviewDoesNotExist && <SubmitReview productId={paramsId} />}
     </section>
   );
 };

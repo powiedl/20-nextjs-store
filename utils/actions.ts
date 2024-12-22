@@ -50,7 +50,7 @@ export const fetchFeaturedProducts = async () => {
 };
 
 // gleichwertig, aber der Ansatz von fetchFeaturedProducts gefällt mir besser ...
-export const fetchAllProducts = ({ search = '' }: { search: string }) => {
+export const fetchAllProducts = async ({ search = '' }: { search: string }) => {
   return db.product.findMany({
     where: {
       OR: [
