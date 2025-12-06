@@ -29,7 +29,7 @@ export default function CheckoutClient() {
   const options = { fetchClientSecret };
 
   return (
-    <div id="checkout">
+    <div id='checkout'>
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>

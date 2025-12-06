@@ -3,7 +3,8 @@ import ProductsContainer from '@/components/products/ProductsContainer';
 type SearchParams = { layout?: 'grid' | 'list'; search?: string };
 
 const ProductsPage = async (props: any) => {
-  const sP = ((await props.searchParams) as SearchParams) || ({} as SearchParams);
+  const sP =
+    ((await props.searchParams) as SearchParams) || ({} as SearchParams);
   const layout = sP.layout || 'grid';
   const search = sP.search || '';
   console.log('ProductsPage,searchParams', sP);
