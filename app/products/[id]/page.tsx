@@ -10,8 +10,9 @@ import ProductReviews from '@/components/reviews/ProductReviews';
 import SubmitReview from '@/components/reviews/SubmitReview';
 import { auth } from '@clerk/nextjs/server';
 
-const SingleProductPage = async ({ params }: { params: { id: string } }) => {
-  const { id: paramsId } = await params;
+const SingleProductPage = async (props: any) => {
+  const params = await props.params;
+  const { id: paramsId } = params as { id: string };
   const product = await fetchSingleProduct(paramsId);
   const { name, image, company, description, price } = product;
   const dollarsAmount = formatCurrency(price);
